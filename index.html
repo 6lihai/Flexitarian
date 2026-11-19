@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>From Fondue to Flexitarian</title>
+<meta name="description" content="An interactive data story about how Swiss eating habits are changing, from fondue to flexitarian, compared with nine other food cultures.">
+<meta name="theme-color" content="#e6f3ea">
+<meta property="og:title" content="From Fondue to Flexitarian: the road to a new Swiss plate">
+<meta property="og:description" content="An interactive data story about Swiss eating habits, flexitarianism and food cultures around the world.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#/"><i></i><span data-t="brand">From Fondue to Flexitarian</span></a>
+  <div class="links"><a href="#/ch1" data-ch="0"><b>1</b> <span data-t="c1n">Tradition</span></a><a href="#/ch2" data-ch="1"><b>2</b> <span data-t="c2n">Change</span></a><a href="#/ch3" data-ch="2"><b>3</b> <span data-t="c3n">Flexitarian</span></a><a href="#/ch4" data-ch="3"><b>4</b> <span data-t="c4n">The world</span></a><a href="#/ch5" data-ch="4"><b>5</b> <span data-t="c5n">You</span></a><a href="#/start" class="epn"><b><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg></b> <span data-t="epN">Epilogue</span></a></div>
+  <div class="seg" role="group" aria-label="Language"><button data-l="en" aria-pressed="true">EN</button><button data-l="fr" aria-pressed="false">FR</button></div>
+</div><div class="prog"><i id="prog"></i></div></nav>
+
+<header class="band cover" id="top" data-view="home"><div class="wrap cov">
+  <div class="covtxt">
+    <div class="kick" data-t="covK">An interactive data story · Switzerland, 1950s to today</div>
+    <h1 data-t="h1" data-html>From fondue to flexitarian: <b>the road to a new Swiss plate</b></h1>
+    <p class="lead mute" data-t="covQ">How are the Swiss changing what they eat, and why? Is the rest of the world doing the same? And where does your own plate fit?</p>
+    <div class="ctrl"><a class="btn" href="#/plate" data-t="covGo2">Start here →</a><button class="btn ghost" id="flipBtn" data-t="covFlip">↻ Flip the plate: choose a chapter</button></div>
+  </div>
+  <figure class="covart" id="covArt">
+    <div class="cflip" id="cFlip"><div class="cin">
+      <div class="cf cfront" tabindex="0" role="button" aria-label="Flip the plate to see the five chapters"><svg id="covPlate" viewBox="0 0 400 400" role="img" aria-label="The Swiss plate changing over time"></svg><span class="fliphint" aria-hidden="true">↻</span></div>
+      <div class="cf cback"><svg id="menuPlate" viewBox="0 0 400 400" role="group" aria-label="Chapters"></svg></div>
+    </div></div>
+    <figcaption><div class="capf"><span class="covyr" id="covYear"></span><b id="covLab"></b><div class="seg sm" id="covDots" role="group" aria-label="Plate"></div><div class="legend" id="covLeg"></div></div><div class="capb" id="menuCap" aria-live="polite"></div></figcaption></figure>
+</div>
+<div class="wrap tbar" aria-label="Interactive tools"><span class="tbk" data-t="tbK">Tools</span><div class="tbl"><a class="tool" href="#prologue" style="--k:var(--red)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l7 5"/></svg><span data-t="tbA">Build your plate</span></a><a class="tool" href="#tradition" style="--k:var(--gold)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg><span data-t="tbB">Seasons wheel</span></a><a class="tool" href="#past" style="--k:var(--blue)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.6-6-10a6 6 0 0 1 12 0c0 4.4-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg><span data-t="tbC">Swiss map timeline</span></a><a class="tool" href="#eaters" style="--k:var(--lav)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8" r="2.5"/><circle cx="17" cy="8" r="2.5"/><path d="M3 20c0-3 1.8-5 4-5s4 2 4 5M13 20c0-3 1.8-5 4-5s4 2 4 5"/></svg><span data-t="tbD">Four kinds of eaters</span></a><a class="tool" href="#worldx" style="--k:var(--red)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg><span data-t="tbE">World map</span></a><a class="tool" href="#you" style="--k:var(--green)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2"/></svg><span data-t="tbF">Week planner</span></a><a class="tool" href="#plates" style="--k:var(--ink)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5 7c3 1 5 0 7-2M8 21c0-4 3-4 3-7s-4-2-4-5M20 9c-2 0-3 1-3 3s2 3 1 6"/></svg><span data-t="tbG">Plates on a globe</span></a></div></div>
+</header>
+<section class="band prologue" id="prologue" data-view="plate"><div class="wrap">
+  <div class="kick" data-t="proK">Before we start</div><h2 data-t="proH">What is on your plate today?</h2><p class="mute" data-t="proP">Choose where you are from and build a typical plate. The story comes back to it at the end.</p>
+  <div class="gpanel">
+    <div class="gstep1">
+      <div class="step"><b>1</b><span data-t="hpStep">Where are you from?</span></div>
+      <div class="chips" id="homePick"></div>
+      <span class="small mute" data-t="hpHelp">Your plate starts as a typical plate from this country.</span>
+    </div>
+    <div class="ghead">
+      <div class="step"><b>2</b><span data-t="plStep">Fill your plate and see your eating style</span></div>
+      <div class="seg" role="group" aria-label="Reference"><span class="small mute" style="padding:0 8px;align-self:center" data-t="cmpW">Compare with</span><button data-ref="swiss" aria-pressed="true" data-t="refS">Swiss food pyramid</button><button data-ref="phd" aria-pressed="false" data-t="refP">Planet-friendly plate</button></div>
+    </div>
+    <div class="game">
+      <div class="gplate">
+        <div class="colh" data-t="colPlate">Your plate</div>
+        <svg id="plateSvg" viewBox="0 0 400 400" role="img" aria-label="Your plate"></svg>
+        <p class="small mute" style="text-align:center;margin:4px auto 10px" id="plateHelp" data-t="help">Drag the white dots, or use + and −. Hover a slice to see its numbers.</p>
+        <div class="ctrl" style="justify-content:center;margin-top:0"><div class="seg sm" role="group" aria-label="Compare ring" id="ringSeg"></div></div>
+        <p class="small mute" style="text-align:center;margin:8px auto 0" id="avgNote"></p>
+        <div style="text-align:center;margin-top:8px"><button class="btn ghost sm" id="resetBtn" data-t="resetB">Start from my home plate</button></div>
+      </div>
+      <div class="gcard">
+        <div class="colh" data-t="colRes">Your result</div>
+        <div class="scorerow"><div class="score"><span id="gScoreN">0</span><small> / 100</small></div><div class="badge" id="badge"></div></div>
+        <div class="prof" id="prof" aria-live="polite"></div>
+        <div id="catRows" style="margin-top:12px"></div>
+      </div>
+      <div class="gpyr">
+        <div class="colh" data-t="pyrT">Swiss food pyramid (2024)</div>
+        <svg id="pyr" viewBox="0 0 300 250" role="img" aria-label="Swiss food pyramid"></svg><div class="pyrTip" id="pyrTip" aria-live="polite"></div>
+        <details class="chald"><summary><span data-t="chT">Challenges</span> <span class="mute" id="chalN"></span></summary><ul class="chal" id="chal"></ul></details>
+      </div>
+    </div>
+  </div>
+</div><div class="wrap"><p class="take"><span data-t="soW">So</span> <span data-t="tk_top">Keep this plate in mind. At the end of the story, you'll see what it means for your body and for the planet.</span></p></div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="chap" id="ch1" data-view="ch1"><div class="wrap"><div class="cn">01</div><div><div class="kick"><span data-t="chW">Chapter</span> 1 · <span data-t="ch1k">The Swiss plate</span></div><h2 data-t="ch1h">What did the Swiss traditionally eat, and when?</h2><p class="mute" data-t="ch1p">Before the change, the starting point: cheese, potatoes, bread and the seasons.</p></div></div></section>
+<section class="band" id="tradition" data-view="ch1"><div class="wrap">
+  <p class="mute" data-t="trP">Pick a month on the wheel or a classic dish below. Each month shows what grows in Switzerland, its festival food, and a classic dish with a number that links it to today.</p>
+  <div class="cal">
+    <div class="wheel"><svg id="wheel" viewBox="0 0 400 400" role="img" aria-label="Seasonal wheel"></svg>
+      <div class="legend" style="justify-content:center"><span class="sq" style="--c:var(--green)" data-t="fresh">Fresh Swiss harvest</span><span class="sq" style="--c:#a9cdb6" data-t="stor">Swiss storage</span></div></div>
+    <div class="mcard" id="mcard" aria-live="polite"></div>
+  </div>
+  <div class="small mute" style="margin:22px 0 8px" data-t="trD">Eight classics, eight seasons</div>
+  <div class="dstrip" id="dstrip"></div>
+  <details class="calfull"><summary data-t="calMore">Show the full calendar of 17 Swiss fruits and vegetables</summary><div class="scroll"><table class="cgrid" id="cgrid"></table></div><p class="small mute" style="margin-top:10px" data-t="caln">Typical Swiss seasons, based on regional seasonal calendars. Exact weeks change with weather, altitude and greenhouses. Grey = mostly imported in that month.</p></details>
+</div><div class="wrap"><p class="take"><span data-t="soW">So</span> <span data-t="tk_tradition">The traditional Swiss plate follows the seasons and is built on cheese, potatoes and bread, with meat often on the side. That is where our road starts.</span></p></div></section>
+
+
+<section class="chap" id="ch2" data-view="ch2"><div class="wrap"><div class="cn">02</div><div><div class="kick"><span data-t="chW">Chapter</span> 2 · <span data-t="ch2k">How it changed</span></div><h2 data-t="ch2h">What changed since the 1950s?</h2><p class="mute" data-t="ch2p">One map and one chart: twelve stops from the Sunday roast to oat milk.</p></div></div></section>
+
+
+
+
+<section class="band" id="past" data-view="ch2"><div class="wrap">
+  <p class="mute" data-t="paP2">Follow twelve stops through time, or switch the map to see the language regions, regional dishes and the companies that shape the Swiss food chain.</p>
+  <div class="pastgrid">
+    <div class="pastmapcol">
+      <div class="seg sm" id="mLayers" role="group" aria-label="Map layer"></div>
+      <div class="mapbox"><svg id="chMap" viewBox="0 0 1000 660" role="img" aria-label="Map of Switzerland"></svg><span class="mapnote" data-t="mapN2">Cantons and lakes: swisstopo · Alps simplified</span></div>
+      <div class="tline"><div class="ctrl" style="margin-top:0"><button class="btn ghost sm" id="rPrev" aria-label="Previous">←</button><button class="btn sm" id="rPlay" data-t="play">Play</button><button class="btn ghost sm" id="rNext" aria-label="Next">→</button><input type="range" id="rSlider" min="0" max="11" step="1" value="0" aria-label="Timeline" hidden></div><div class="tl" id="rTicks"></div></div>
+    </div>
+    <div class="pastside">
+      <div class="stopcard" id="stopCard" aria-live="polite"></div>
+      <div class="minichart"><div class="small mute" data-t="paC">Per person per year · click the chart to jump</div><div class="fig" id="pastFig" style="min-height:190px"><svg></svg></div>
+      <div class="legend"><span style="--c:var(--red)" data-t="meat">Meat</span><span style="--c:var(--blue)" data-t="milk">Milk</span><span style="--c:var(--gold)" data-t="cheese">Cheese</span><span class="dash" style="--c:var(--mute)" data-t="est">Dashed = estimate</span></div></div>
+    </div>
+  </div>
+  <div class="evid">
+    <div class="evhead"><div><div class="kick" data-t="evK">Why we say this</div><h3 data-t="evH">The data behind the conclusion</h3></div><div class="seg sm" id="evTabs" role="group" aria-label="Evidence"></div></div>
+    <div id="evBody" aria-live="polite"></div>
+  </div>
+</div><div class="wrap"><p class="take"><span data-t="soW">So</span> <span data-t="tk_past">Meat peaked at 60.5 kg per person in 1987 and is about 16% lower today. Drinking milk fell 19% since 2017, while cheese rose 14% since 2007. And in just two years the flexitarian middle grew by 45%.</span></p></div></section>
+<section class="chap" id="ch3" data-view="ch3"><div class="wrap"><div class="cn">03</div><div><div class="kick"><span data-t="chW">Chapter</span> 3 · <span data-t="ch3k">The flexitarian turn</span></div><h2 data-t="ch3h">Who is eating less meat, and why?</h2><p class="mute" data-t="ch3p">The heart of the story: few Swiss quit meat, but many eat less of it. How many, who, and why?</p></div></div></section>
+
+
+
+<section class="band" id="turn" data-view="ch3"><div class="wrap">
+  <div class="eaters" id="eaters"></div>
+  <div class="small mute tuhead" data-t="tuHd">Now the numbers: how the Swiss are moving along this scale</div>
+  <div class="seg tabs3" role="tablist"><button data-tu="many" aria-pressed="true" data-t="tuA">How many?</button><button data-tu="who" aria-pressed="false" data-t="tuB">Who?</button><button data-tu="why" aria-pressed="false" data-t="tuC">Why?</button></div>
+  <div class="turngrid"><div><div id="tuViz"></div><div class="fig" id="tuFig" style="min-height:220px;display:none"><svg></svg></div></div><div class="panel" id="tuCard" aria-live="polite"></div></div>
+</div><div class="wrap"><p class="take"><span data-t="soW">So</span> <span data-t="tk_turn">Few Swiss give up meat completely, but about 1 in 4 households now eat flexitarian. Climate, animals and health push the change; taste, habit and cheese slow it down.</span></p></div></section>
+<section class="chap" id="ch4" data-view="ch4"><div class="wrap"><div class="cn">04</div><div><div class="kick"><span data-t="chW">Chapter</span> 4 · <span data-t="ch4k">Beyond Switzerland</span></div><h2 data-t="ch4h">Is the world going the same way?</h2><p class="mute" data-t="ch4p">One map to explore: meat over time, plates, China and Japan up close, and myths to check.</p></div></div></section>
+
+
+
+
+
+<section class="band" id="worldx" data-view="ch4"><div class="wrap">
+  <p class="mute" data-t="wxP" data-html>First, watch meat over time play out in ten countries. Then switch to plates, or zoom into China and Japan. The yellow <b>?</b> pins are myths to check along the way. Drag to move, use + and − to zoom.</p>
+  <div class="wxbar"><div class="seg" id="wxLayers" role="group" aria-label="Map layer"></div><span class="mycount" id="wxMyN"></span></div>
+  <div class="wxgrid"><div class="wxmap"><svg id="wxMap" viewBox="0 0 1000 470" role="img" aria-label="World map of ten food cultures"></svg><div class="zoom"><button id="zIn" aria-label="Zoom in">+</button><button id="zOut" aria-label="Zoom out">−</button><button id="zRe" aria-label="Reset">⟲</button></div></div>
+  <div class="panel wxside" id="wxSide" aria-live="polite"></div></div>
+  <div class="zpre"><span class="small mute" data-t="zTo">Zoom to:</span><button class="chip" data-zb="world" data-t="zW">World</button><button class="chip" data-zb="eu" data-t="zE">Europe</button><button class="chip" data-zb="asia" data-t="zA">East Asia</button><button class="chip" data-zb="in" data-t="zI">India</button><button class="chip" data-zb="us" data-t="zU">United States</button></div>
+  <p class="small mute" data-t="wxN">Plates and meat calories estimated from FAO food supply data (Our World in Data, dietary composition by country). China and Japan: ProVeg Gen Z survey 2023, Good Growth, Japanese fisheries white paper, Korea Rural Economic Institute.</p>
+</div><div class="wrap"><p class="take"><span data-t="soW">So</span> <span data-t="tk_worldx">Rich countries like Switzerland and Germany are past their meat peak. In Asia meat is still rising, even where plant traditions like tofu are centuries old.</span></p></div></section>
+<section class="chap" id="ch5" data-view="ch5"><div class="wrap"><div class="cn">05</div><div><div class="kick"><span data-t="chW">Chapter</span> 5 · <span data-t="ch5k">Your new plate</span></div><h2 data-t="ch5h">What does it all mean for you?</h2><p class="mute" data-t="ch5p">Build a week of dishes from ten food cultures, then serve it to discover your profile and your footprint.</p></div></div></section>
+<section class="band" id="you" data-view="ch5"><div class="wrap"><div class="yflip" id="youFlip"><div class="yin">
+  <div class="face fr" id="youFront">
+  <div class="fhead"><h2 data-t="yoH">What could your week look like?</h2>
+  <ol class="howto" id="howTo"><li data-hs="1"><span class="pn">1</span><span><b data-t="hs1">About you</b><small data-t="hs1s">for your daily needs</small></span></li><li data-hs="2"><span class="pn">2</span><span><b data-t="hs2">Fill your week</b><small id="hsN"></small></span></li><li data-hs="3"><span class="pn">3</span><span><b data-t="hs3">Serve it</b><small data-t="hs3s">see your plate</small></span></li></ol>
+  </div>
+  <div class="plangrid">
+    <div class="planner">
+      <div class="pstep" id="st1"><span class="pn">1</span><b data-t="hs1">About you</b><span class="small mute" data-t="ab1">used for your daily needs</span></div>
+      <details class="aboutd" id="aboutD"><summary><span class="aboutic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></span><b id="aboutSum"></b><span class="editb"><span class="eo" data-t="editO">✎ Edit</span><span class="ec" data-t="editC">Done ✓</span></span></summary><div class="aboutpop"><div class="aboutbar">
+        <div class="seg sm" role="group" aria-label="Sex"><button data-sx="f" aria-pressed="true" data-t="sxF">Female</button><button data-sx="m" aria-pressed="false" data-t="sxM">Male</button></div>
+    <label class="abs"><span><b data-t="bAge">Age</b> <span id="vAge"></span></span><input type="range" id="bAge" min="18" max="80" value="25"></label>
+    <label class="abs"><span><b data-t="bHt">Height</b> <span id="vH"></span></span><input type="range" id="bH" min="145" max="205" value="168"></label>
+    <label class="abs"><span><b data-t="bWt">Weight</b> <span id="vW"></span></span><input type="range" id="bW" min="40" max="140" value="62"></label>
+    <div class="seg sm" role="group" aria-label="Activity"><button data-pa="1.4" aria-pressed="false" data-t="pa1">Mostly sitting</button><button data-pa="1.6" aria-pressed="true" data-t="pa2">Some walking</button><button data-pa="1.8" aria-pressed="false" data-t="pa3">Very active</button></div>
+  </div>
+    <p class="small mute" style="margin:10px 0 0" data-t="bPriv">Nothing you enter leaves this page.</p></div></details>
+      <div class="pstep" id="st2"><span class="pn">2</span><b data-t="hs2">Fill your week</b><span class="small mute" data-t="ab2">14 meals: lunch and dinner</span></div>
+      <div class="subst"><span class="sl">a</span><span data-t="sa">Quick start (optional)</span><div class="seg sm" id="wpSeg"><button data-wp="swiss" aria-pressed="false" data-t="wpS">Typical Swiss week</button><button data-wp="flex" aria-pressed="false" data-t="wpF">Flexitarian week</button><button data-wp="world" aria-pressed="false" data-t="wpW">World tour</button><button data-wp="clear" aria-pressed="false" data-t="wpE">Empty</button></div></div>
+      <div class="subst"><span class="sl">b</span><span data-t="sb">Pick a meal slot</span><span class="small mute" data-t="sb2">or click × to empty it</span></div>
+      <div class="wkg" id="wkG"></div>
+      <div class="subst"><span class="sl">c</span><span id="dishPrompt"></span><label class="selw"><span class="small mute" data-t="ps3f">Food culture</span><select id="dishSel"></select></label></div>
+      <div class="dishl" id="dishL"></div>
+    </div>
+    <aside class="wkside"><div class="pstep" id="st3"><span class="pn">3</span><b data-t="hs3b">Serve your week</b></div><div class="panel wkres" id="wkRes" aria-live="polite"></div>
+      <button class="btn big" id="serveBtn" data-t="svB">Serve my week →</button>
+      <p class="small mute" style="text-align:center;margin:8px 0 0" data-t="svP2">See your plate profile and what it would mean for Switzerland.</p></aside>
+  </div>
+</div>
+<div class="face bk" id="youBackF" inert aria-hidden="true">
+  <div class="fhead"><div><div class="kick" data-t="sumK">Your plate profile</div><h2 data-t="bkH">Here is your plate</h2></div>
+    <div class="ctrl" style="margin:0"><button class="btn ghost" id="backBtn" data-t="bkB">← Change my week</button><button class="btn" id="dlCard" data-t="dlB">Download my plate card</button></div></div>
+  <div class="seg btabs" id="bTabs" role="tablist"><button data-bt="prof" aria-pressed="true" data-t="btP">Your profile</button><button data-bt="body" aria-pressed="false" data-t="btB">Your body</button><button data-bt="planet" aria-pressed="false" data-t="btE">If everyone ate like you</button></div>
+  <div class="bpanes">
+    <div class="bpane" data-bp="prof"><div class="scard" id="scard" aria-live="polite"></div><div class="ctrl"><button class="btn ghost sm" id="copyCard" data-t="copyB">Copy as text</button><span class="small mute" id="copyMsg"></span></div></div>
+    <div class="bpane" data-bp="body" aria-hidden="true"><div class="bodylay"><div class="gcard bstep" id="bodyNeed"></div><div class="barrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="gcard bstep" id="dayOut"></div></div><div class="gcard bstep" id="bodyOut" aria-live="polite"></div></div>
+    <div class="bpane" data-bp="planet" aria-hidden="true"><div class="plhead"><h3 class="plh" data-t="plH">If everyone in Switzerland ate like you</h3><div class="seg sm pref" id="pRef" role="group" aria-label="Compare with"></div></div><div class="planet" style="margin-top:12px;border-top:0;padding-top:0">
+    <div><p class="small mute" data-t="plP">Each square is 1/40 of the farmland the average Swiss diet uses today. Green squares grow crops for people, tan squares feed cows, pigs and chickens, and trees are land that would be freed. Red squares mean more land than today.</p>
+      <div class="lands" id="land"></div>
+      <div class="legend"><span class="sq" style="--c:#cfe6c9" data-t="lgCrop">Crops for people</span><span class="sq" style="--c:#e9d6a8" data-t="lgPast">Animal feed and pasture</span><span class="sq" style="--c:#7fb48f" data-t="lgFor">Freed land (forest)</span><span class="sq" style="--c:#f2b8ae" data-t="lgMore">Extra land needed</span></div></div>
+    <div id="yearOut" aria-live="polite"></div>
+  </div></div>
+  </div>
+</div>
+</div></div><p class="small mute" style="margin-top:18px" data-t="bdN">Energy: Mifflin-St Jeor formula × activity. Protein 0.8 g per kg body weight; fibre 30 g, calcium 1000 mg, iron 15 mg (women) or 10 mg (men) per day, D-A-CH reference values. About 75% of energy is assumed to come from the plate; the rest from oils, sugar and drinks. Nutrient contents and climate and land values are rough averages per food group, based on Poore and Nemecek (2018). Read them as directions, not exact amounts.</p></div><div class="wrap"><p class="take"><span data-t="soW">So</span> <span data-t="tk_body">A varied plate with less meat can still cover your needs, and it uses much less land.</span></p><a class="epteaser" href="#/start"><span class="stack" id="epStack"></span><span><span class="small mute" data-t="etK">Epilogue</span><b data-t="etH">Eighteen plates on a globe</b><span class="small mute" data-t="etP">Fly from Switzerland to China, Japan and the US, and flip each plate to see its story.</span></span><span class="go" data-t="etGo">Open the epilogue →</span></a></div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="band gallery" id="plates" data-view="start"><div class="wrap">
+  <div class="ephead"><div><div class="kick" data-t="gaK3">Epilogue · Eighteen plates around the world</div><h2 data-t="gaH">Flip a plate to see what it tells</h2></div>
+  <p class="mute" data-t="gaP3">Choose a plate from the list. The globe turns to its country; tap the big plate to flip it and read its story.</p></div>
+  <div class="epi">
+    <div class="globebox" id="gBox"><canvas id="globe" aria-label="Globe with the ten food cultures" role="img"></canvas><div class="gcall" id="gCall" hidden></div><div class="zoom"><button id="gIn" aria-label="Zoom in">+</button><button id="gOut" aria-label="Zoom out">−</button><button id="gRe" aria-label="Whole globe">⟲</button></div><button class="gtour" id="gTour" data-t="gTourB">▶ Take the tour</button><div class="gcap" id="gCap" hidden aria-live="polite"></div><div class="gtime"><button class="gplay" id="gPlay" aria-label="Play years">▶</button><input type="range" id="gYr" min="1961" max="2023" value="2023" aria-label="Year"><b id="gYrL">2023</b><span class="gyn" id="gYrN"></span></div></div>
+    <aside class="epside">
+      <div class="epcard" id="epCard" aria-live="polite"></div>
+      <div class="eplist" id="pGrid" role="listbox" aria-label="Plates"></div>
+    </aside>
+  </div>
+  <div class="eplow"><div class="legend" id="pLeg"></div></div>
+  <div class="wallhd"><div><div class="kick" data-t="wlK">The wall</div><h3 data-t="wlH">All eighteen plates at a glance</h3><p class="small mute" data-t="wlP">Tap a plate to turn it over. It also lights up on the globe above.</p></div><button class="btn ghost sm" id="wAll" data-t="wlAll">↻ Flip all</button></div>
+  <div class="pgrid wall" id="pWall"></div>
+  <div class="ctrl" style="justify-content:flex-end;margin-top:26px"><a class="btn ghost sm" href="#/" data-t="gaEnd">Back to the cover ↺</a></div>
+  <button class="gtoast" id="gToast" hidden></button>
+  <details class="method"><summary data-t="meS">How these plates were made</summary><div class="small" data-t="meT" data-html><p><b>Country plates</b> come from FAO food supply data: calories per person per day for each food group (Our World in Data, 1961–2023). We turned calories into an estimated share of the plate by weight, using typical energy densities (for example vegetables about 0.3 kcal per gram, grains 1.6, meat 2.4, dairy 1.0). Oils, sugar and drinks are left out. Food supply is what is available in a country, not exactly what people eat: waste is included.</p><p><b>Food pyramid plate:</b> our translation of the Swiss food pyramid (BLV/SGE, 2024) into plate shares. <b>Planet-friendly plate:</b> the EAT-Lancet planetary health diet. <b>Average Swiss man:</b> the menuCH survey (2014–15).</p><p><b>Week planner dishes</b> are estimated shares of typical recipes, not measured data. <b>Climate and land</b> numbers are rough averages per food group from Poore and Nemecek (2018). Read all plates as good estimates, not exact measurements.</p></div></details>
+</div></section>
+<div class="band pager" id="pager" data-view="pages"></div>
+<footer class="band alt" id="sources" data-view="pages"><div class="wrap" style="margin-bottom:18px"><button class="btn ghost sm" id="rsFoot" data-t="rsB">↺ Reset for the next visitor</button> <span class="small mute" data-t="rsT">Clears the reading progress and your plate on this device.</span></div><div class="wrap">
+  <h2 data-t="src">Sources and notes</h2>
+  <p class="small mute" data-t="srcn">Prototype for a student project. Meat figures are Proviande "supply per person", which includes bones and waste. Proviande estimates people actually eat about 100 g a day. The 2023–2025 meat values and the 1950s value are estimates worked out from published percentage changes. Plates and dish portions are illustrations, not measured data. In the plate game, targets are shares of daily portions (Swiss pyramid) or of grams (EAT-Lancet reference diet), and the "average Swiss man" plate is worked out from menuCH intake by weight, so the comparison is approximate. Country comparisons use different methods, so read them as rough. The St. Gallen study was co-funded by Danone.</p>
+  <ol class="src small">
+    <li><a href="https://irm.unisg.ch/en/planetary-health-diet-study-flexitarianism-is-booming-people-in-switzerland-are-buying-less-meat-but-milk-products-are-still-in-high-demand/">IRM-HSG, Planetary Health Diet in Switzerland 2024</a></li>
+    <li><a href="https://www.ernaehrungsatlas.ch/en/downloads">Swiss Nutrition Atlas (Ernährungsatlas)</a></li>
+    <li><a href="https://www.swissveg.ch/sites/swissveg.ch/files/pdf/Swissveg-Report-2024_Anzahl-Vegis-CH_DE.pdf">Swissveg Report 2024</a> and <a href="https://www.swissveg.ch/sites/swissveg.ch/files/pdf/FR_Swissveg-Report-2022_Anzahl-Vegetarier-Veganer-Schweiz.pdf">2022 (FR)</a></li>
+    <li><a href="https://www.cambridge.org/core/product/4144BB08CAA98A28F5FFB0EAE8628C03/core-reader">menuCH meat consumption study, Public Health Nutrition</a> and <a href="https://www.studydata.blv.admin.ch/catalog/4/related-materials">BLV study data</a></li>
+    <li>Proviande via <a href="https://www.swissinfo.ch/eng/society/high-prices_swiss-pay-the-most-for-meat-in-europe/44333338">swissinfo</a>, <a href="https://www.euromeatnews.com/Article-Switzerland%3A-Meat-supply-increased-again-in-2025/9358">EuroMeatNews 2025</a>, <a href="https://www.euromeatnews.com/Article-Switzerland:-Meat-supply-increased-in-2024/8310">2024</a>, <a href="https://www.foodnavigator.com/Article/2014/04/07/Swiss-ate-more-meat-in-2013-says-industry-association">FoodNavigator 2013</a></li>
+    <li>Swiss Milk Producers, <a href="https://api.swissmilk.ch/wp-content/uploads/2019/06/240917_Milchwirtschaft2024_En_online.pdf">Swiss dairy economy in figures</a> (IDF data)</li>
+    <li>Cheese: <a href="https://www.swissinfo.ch/eng/agribusiness/the-swiss-ate-more-cheese-last-year/91201616">swissinfo 2026</a>, <a href="https://www.iamexpat.ch/expat-info/swiss-news/each-swiss-person-consumed-suitcase-worth-cheese-2022">2022 types</a>, <a href="https://www.swissinfo.ch/eng/various/swiss-cheese-reaches-second-best-export-year-in-2024/88808179">exports</a></li>
+    <li><a href="https://www.chocosuisse.ch/en/beitrag/schweizer-schokolade-2025-absatz-ruecklaeufig-umsatz-steigt-weiter">Chocosuisse 2025</a>, <a href="https://www.chocosuisse.ch/publicassets/CHOCOSUISSE/Dateien/Chocosuisse-Bulletin-2025_fuer-PDF.pdf">Bulletin 2025</a></li>
+    <li>Self-sufficiency: <a href="https://2023.agrarbericht.ch/download/pictures/55/kv9fn7rzapyg0tf4pqpm20zmdne8nr/agrarbericht_kompakt_2023_e.pdf">Agrarbericht 2023</a>, <a href="https://www.sbv-usp.ch/fileadmin/sbvuspch/04_Medien/Agristat_aktuell/2025/Aktuell_AGRISTAT_2025-11.pdf">Agristat 2025</a></li>
+    <li>Plant-based: <a href="https://swissinfo.ch/eng/business/consumption-of-meat-alternatives-booms/46625350">FOAG via swissinfo</a>, <a href="https://swissinfo.ch/eng/swiss-made/78-million-turnover-with-meat-substitutes/88706445">Coop report 2025</a>, <a href="https://vegconomist.com/market-and-trends/coop-switzerland-downward-trend-women-vegan-alternatives-upward-trend-men/">Coop report 2024</a></li>
+    <li>Food abroad: <a href="https://www.verdictfoodservice.com/data-insights/italian-cuisine-price-trends-switzerland/">GlobalData</a>, <a href="https://www.iamexpat.ch/lifestyle/lifestyle-news/switzerlands-most-popular-takeaways-revealed">Just Eat</a>, <a href="https://trademagazin.hu/en/rekord-magassagba-szogott-a-svajci-lidl-sajtexportja-tavaly">Lidl exports</a></li>
+    <li>Comparisons: <a href="https://www.topagrar.com/markt/news/fleischverzehr-in-der-eu-leicht-gestiegen-20024842.html">EU meat</a>, <a href="https://www.topagrar.com/markt/news/deutsche-essen-mehr-fleisch-heimische-produktion-sinkt-20024593.html">Germany meat</a>, <a href="https://www.statistik.at/fileadmin/announcement/2025/12/20250901VersorgungsbilanzentierischeProdukte2024.pdf">Austria</a></li>
+    <li>Industry: <a href="https://valindex.ch/en/industry/food-beverage-manufacturing/">fial turnover via Val Index</a>, <a href="https://www.bfs.admin.ch/bfs/en/home/statistics/agriculture-forestry/food.html">FSO food supply chain</a></li>
+    <li>Country plates: <a href="https://ourworldindata.org/grapher/dietary-composition-by-country">Our World in Data, dietary composition by country</a> (FAO food balances); map shapes: Plotly geo assets (Natural Earth)</li><li>Swiss map: canton and lake outlines from <a href="https://www.swisstopo.admin.ch/">swisstopo</a> (swissBOUNDARIES3D) via <a href="https://www.github.com/l00mi/swiss-maps">swiss-maps</a>; language shares from the Federal Statistical Office.</li><li>Body and planet: Mifflin-St Jeor equation; <a href="https://www.sge-ssn.ch/media/Merkblatt-Vegane-Ernaehrung-2021.pdf">protein 0.8 g/kg (SGE)</a>; <a href="https://www.blv.admin.ch/blv/de/home/lebensmittel-und-ernaehrung/ernaehrung/empfehlungen-informationen/naehrstoffe.html">Swiss nutrient reference values (BLV)</a>; <a href="https://psi.ch/en/ppa/news/food-co2-footprint-and-resource-usage">Poore and Nemecek via PSI</a>, <a href="https://greencalculus.com/guides/carbon-footprint-of-beef/">via OWID</a>. China and Japan: <a href="https://en.wikipedia.org/wiki/Tofu">tofu history</a>, <a href="https://www.chinatravel.com/chinese-food/eight-distinct-regional-cuisines">eight cuisines</a>, <a href="https://proveg.org/press-release/chinas-gen-z-power-plant-based-and-cultivated-food-transformation-survey-finds/">ProVeg Gen Z</a>, <a href="https://proveg.com/ap/wp-content/uploads/sites/13/2023/06/PV_China_GenZ_survey_report_final.pdf">report</a>, <a href="https://www.greenqueen.com.hk/?p=64035">Good Growth</a>, <a href="https://www.japantimes.co.jp/news/2009/05/16/national/report-frets-effect-on-fisheries-as-downtrend-in-seafood-consumption-increases/">Japan fish vs meat</a>, <a href="https://www.seafoodsource.com/news/supply-trade/japan-addresses-waning-seafood-consumption">seafood decline</a>, <a href="https://marginalrevolution.com/marginalrevolution/2013/09/the-japanese-food-transition.html">Japan pork</a>, <a href="https://www.dairynews.today/news/china-s-dairy-consumption-surges-positions-as-global-market-leader.html">China dairy</a></li><li>Food pyramid: <a href="https://www.sge-ssn.ch/media/sge_pyramid_basic_D_20161.pdf">SGE pyramid</a>, <a href="https://www.blick.ch/politik/bund-stellt-neue-lebensmittel-pyramide-vor-schweizer-sollen-weniger-fleisch-essen-id20127126.html">2024 update</a>; menuCH: <a href="https://news.save.ch/en/?p=16808">meat and dairy</a>, <a href="https://core.ac.uk/download/132562856.pdf">regional differences</a>, <a href="https://lenews.ch/2017/03/22/swiss-report-recommends-eating-more-foods-typically-high-in-saturated-fats/">snacks</a>, <a href="https://assets-eu.researchsquare.com/files/rs-8500417/v1/ab79be0840949461697e6b8d.docx">intake by food group</a></li><li>Planet plate: <a href="https://hsph.harvard.edu/wp-content/uploads/2025/10/PlatePlanet-HLGuide-3.pdf">Harvard Plate and Planet guide</a>; vegetables: <a href="https://dam-api.bfs.admin.ch/hub/api/dam/assets/32646487/master">FSO 2023</a>, <a href="https://www.fruitnet.com/fruchthandel/schweiz-möhren-sind-beliebtestes-gemuse/243637.article">tomatoes</a>; seasons: <a href="https://www.sge-ssn.ch/media/Ebenrain_Saisonkalender.pdf">Ebenrain seasonal calendar</a></li><li>Flexitarian and motives: <a href="https://en.wikipedia.org/wiki/Flexitarianism">Flexitarianism</a>, <a href="https://barrypopik.com/blog/flexitarian">word origin</a>, <a href="https://www.plattformj.ch/artikel/196317/">Coop report 2022</a>, <a href="https://www.plattformj.ch/artikel/216882/">2024</a>, <a href="https://www.horizont.net/schweiz/nachrichten/-coop-plant-based-food-report-zahl-der-flexitarier-stagniert-225044">2025</a>, <a href="https://www.greenqueen.com.hk/?p=76842">2025 motives</a>, <a href="https://www.greenqueen.com.hk/?p=70253">oat share</a>, <a href="https://lebensmittelpraxis.de/handel-aktuell/47186-marktforschung-jeder-dritte-will-weniger-fleisch-essen.html">DACH survey</a>, <a href="https://de.statista.com/themen/3360/gig-economy/">vegetarian motives</a>, <a href="https://www.cso.ie/en/releasesandpublications/ep/p-cpl/pricelevelsoffoodbeveragesandtobacco2024howirelandcompares/meat">meat prices 2024</a>, <a href="https://lenews.ch/2019/08/29/swiss-meat-remains-most-expensive-in-europe/">2019</a>, <a href="https://www.swissinfo.ch/eng/business/pea-based-chicken-for-lunch-sunflower-pork-for-dinner/47705622">Planted</a></li><li>World: <a href="https://ourworldindata.org/data-insights/over-the-last-six-decades-china-has-rapidly-increased-and-diversified-its-meat-consumption">China (OWID)</a>, <a href="https://www.climateaction.org/news/china_to_reduce_its_meat_consumption_by_50">China guidelines</a>, <a href="https://www.china-briefing.com/news/is-a-meatless-meat-revolution-really-underway-in-china/">China plant-based</a>, <a href="https://www.asiapacific.ca/fr/node/57001">Korea rice vs meat</a>, <a href="https://mbiz.heraldcorp.com/article/10909020">Korea 2024</a>, <a href="https://en.wikipedia.org/wiki/History_of_meat_consumption_in_Japan">Japan history</a>, <a href="https://zenbird.media/?p=17157">Japan Vegewel</a>, <a href="https://vegconomist.com/market-and-trends/japanese-consumers-are-reducing-meat-prefer-vegetables-to-meat-substitutes/">Japan barriers</a>, <a href="https://www.pewresearch.org/religion/2021/06/29/religion-and-food/">India (Pew)</a>, <a href="https://www.hogapage.de/nachrichten/food/ernaehrung/ern%C3%A4hrungsreport-2025-so-essen-die-deutschen/">Germany 2025</a>, <a href="https://www.tageskarte.io/fileadmin/Banner/ernaehrungsreport-2025.pdf">Ernährungsreport</a>, <a href="https://forum.nunosempere.com/posts/ddLLBJWo88sW2sL9R/what-share-of-british-adults-are-vegetarian-vegan-or">UK (YouGov/OWID)</a>, <a href="https://www.sherwood.news/world/vegetarianism-veganism-declining-in-us/">US (Gallup)</a>, <a href="https://yougov.com/articles/36188-what-making-flexitarians-us-and-uk-shift-towards-m">US/UK flexitarians</a>, <a href="https://www.mappr.co/?p=1917">FAO 2023 values</a>, <a href="https://ipfs.aleph.im/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/List_of_countries_by_meat_consumption.html">FAO 2002/2009</a></li><li>Restaurants: <a href="https://www.swissveg.ch/de/restaurants">Swissveg</a>, <a href="https://www.vegan-restaurants.net/switzerland">vegan-restaurants.net</a></li>
+  </ol>
+</div></footer>
+<script src="js/app.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/plotly.js@2.35.2/dist/plotly-geo-assets.js" onload="window.__geoLoaded&&window.__geoLoaded()"></script>
+</body>
+</html>
